@@ -12,7 +12,7 @@ resource "aws_ecr_repository" "app_repository" {
 
   tags = {
     "Name" = var.app_name
-    "Environment" = var.environment
+    "DeploymentMode" = var.deployment_mode
     "Project" = var.project_slug
     "ManagedBy" = "app_platform"
   }
