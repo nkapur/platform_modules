@@ -1,0 +1,16 @@
+# This file contains the metadata for your shared Helm chart.
+# It defines the chart's name, version, and description. The version number
+# is particularly important, as it allows your applications to pin to a specific,
+# stable version of the deployment logic.
+
+apiVersion: v2
+name: fastapi-service
+description: A reusable Helm chart for deploying standard FastAPI applications
+type: application
+
+# This is the version of the chart itself.
+version: 0.1.0
+
+# This is the default version of the application this chart deploys.
+# It can be (and usually is) overridden in the values.yaml file.
+appVersion: "1.0.0"

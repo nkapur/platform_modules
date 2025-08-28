@@ -1,0 +1,5 @@
+# This file contains all shared constants for the STAGING environment.
+global:
+  awsAccountId: "396724649279"
+  awsRegion: "us-west-2"
+  certificateId: "77fbc603-20b8-46e0-a0ef-1c89bbe6f6a3"

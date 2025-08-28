@@ -1,0 +1,43 @@
+# Defines the default configuration "API" for your chart. These values establish
+# the structure that application-specific and environment-specific values files will override.
+
+# Global values are used to construct resource names and ARNs.
+# They are expected to be provided by a central environment file (e.g., staging-globals.yaml).
+global:
+  awsAccountId: "" # e.g., "123456789012"
+  awsRegion: ""    # e.g., "us-west-2"
+  certificateId: "" # e.g., "your-certificate-id"
+
+replicaCount: 1
+namespace: "default"
+
+image:
+  # The specific name of the ECR repository for the app (e.g., "order_service").
+  repositoryName: "" # Mandatory: Must be provided by the application's values file.
+  pullPolicy: IfNotPresent
+  tag: "" # Mandatory: Must be provided by the application's values file.
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  className: "alb"
+  host: "chart-example.local" # Mandatory: Must be provided by the application's values file.
+  annotations:
+    # Default annotations for an AWS Load Balancer Controller Ingress.
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+
+resources:
+  # Default resource requests and limits.
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

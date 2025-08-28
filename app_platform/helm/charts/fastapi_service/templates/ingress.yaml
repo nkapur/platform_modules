@@ -1,0 +1,28 @@
+# This template generates the Kubernetes Ingress resource, which manages
+# external access to the service, typically handling HTTP/HTTPS routing,
+# SSL termination, and load balancing via an AWS ALB.
+
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "app.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+  annotations:
+    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:{{ .Values.global.awsRegion }}:{{ .Values.global.awsAccountId }}:certificate/{{ .Values.global.certificateId }}"
+spec:
+  rules:
+    - host: {{ .Values.ingress.host | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "app.fullname" . }}
+                port:
+                  name: http
+{{- end }}
