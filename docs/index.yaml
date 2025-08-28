@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  fastapi-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-08-27T23:59:44.792797-07:00"
+    description: A reusable Helm chart for deploying standard FastAPI applications
+    digest: 5e9b18ea836f1f0017728ee2d3d805673b673782c1a9e25b21b50db5fc2ba5c3
+    name: fastapi-service
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/nkapur/platform_modules/master/app_platform/helm/charts/fastapi-service-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-08-27T23:59:44.792583-07:00"
