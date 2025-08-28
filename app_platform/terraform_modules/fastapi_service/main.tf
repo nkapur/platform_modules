@@ -25,7 +25,6 @@ resource "aws_ecr_repository" "app_repository" {
 resource "aws_ecr_lifecycle_policy" "app_repo_policy" {
   repository = aws_ecr_repository.app_repository.name
 
-  # The policy is defined in JSON format.
   policy = <<-EOT
   {
       "rules": [
