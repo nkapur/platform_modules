@@ -2,7 +2,7 @@
 # external access to the service, typically handling HTTP/HTTPS routing,
 # SSL termination, and load balancing via an AWS ALB.
 
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
