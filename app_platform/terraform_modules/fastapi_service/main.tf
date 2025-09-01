@@ -70,6 +70,7 @@ data "aws_lb" "app_alb" {
     "elbv2.k8s.aws/cluster" = var.k8s_cluster_name
     "ingress.k8s.aws/stack" = "${var.deployment_mode}/${var.project_slug}"
   }
+  depends_on = [aws_ecr_repository.app_repository]
 }
 
 # Create the DNS record
