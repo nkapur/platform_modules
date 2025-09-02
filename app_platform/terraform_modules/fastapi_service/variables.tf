@@ -22,3 +22,9 @@ variable "k8s_cluster_name" {
   description = "The name of the Kubernetes cluster."
   type        = string
 }
+
+variable "chart_name" {
+  description = "The name of the Helm chart."
+  type        = string
+  default     = "fastapi-service"
+}
