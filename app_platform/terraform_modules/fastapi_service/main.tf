@@ -68,7 +68,7 @@ data "aws_route53_zone" "my_domain" {
 data "aws_lb" "app_alb" {
   tags = {
     "elbv2.k8s.aws/cluster" = var.k8s_cluster_name
-    "ingress.k8s.aws/stack" = "${var.deployment_mode}-${var.chart_name}/${var.project_slug}"
+    "ingress.k8s.aws/stack" = "${var.deployment_mode}/${var.project_slug}-${var.chart_name}"
   }
   depends_on = [aws_ecr_repository.app_repository]
 }
